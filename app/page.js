@@ -11,7 +11,7 @@ export default function Home() {
   };
   return (
     <main>
-      <section className=" min-h-[100vh] grid grid-cols-2">
+      <section className=" min-h-[100vh] grid grid-cols-2 relative top-12">
         <div className=" flex items-center justify-center flex-col ml-[10vw] gap-4">
           <p className="text-yellow-300 font-bold text-6xl">
             Everything you are. In one, simple Link in Bio
