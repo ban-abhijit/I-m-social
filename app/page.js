@@ -17,8 +17,10 @@ export default function Home() {
             Everything you are. In one, simple Link in Bio
           </p>
           <p className="text-yellow-200">
-            Showcase your work, socials, and passions with a single beautiful
-            link that connects audiences instantly to everything you love.
+            Unify your work, social accounts, and passions with one seamless
+            link that instantly introduces your audience to everything you care
+            about, helping them explore and engage with your world effortlessly
+            and beautifully.
           </p>
           <div className="input flex gap-5 my-3 justify-center ">
             {" "}
@@ -40,7 +42,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className=" flex items-end justify-center flex-col mr-[10vw]">
+        <div className=" flex items-end justify-center mt-6 flex-col mr-[10vw]">
           <Image
             className="top-8 relative"
             alt="loading.."
