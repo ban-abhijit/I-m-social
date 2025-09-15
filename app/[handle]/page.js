@@ -22,7 +22,7 @@ export default async function Page({ params }) {
         {/* Handle */}
         <span className="font-bold text-2xl mt-4">@{items.handle}</span>
         {/* Links */}
-        <div className="flex flex-col w-full mt-8">
+        <div className="flex flex-col w-[70%] sm:w-full mt-8">
           {(items.links ? JSON.parse(items.links) : []).map((item, index) => (
             <Link href={item.link} key={index}>
               <div className="py-4 px-2 bg-yellow-300 text-black rounded-md my-3 text-center">
