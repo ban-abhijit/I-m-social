@@ -49,6 +49,7 @@ export default function Home() {
             height={600}
           ></Image>
         </div>
+        <div></div>
       </section>
     </main>
   );
