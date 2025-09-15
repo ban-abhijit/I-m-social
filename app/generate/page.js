@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Head from "next/head";
 import { ToastContainer, toast } from "react-toastify";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-function Generate() {
+function Gene() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [handle, sethandle] = useState(searchParams.get("handle"));
@@ -152,4 +152,10 @@ function Generate() {
   );
 }
 
-export default Generate;
+export default function Generate() {
+  return (
+    <Suspense fallback={<div>Loading…</div>}>
+      <Gene />
+    </Suspense>
+  );
+}
