@@ -14,7 +14,7 @@ function Navbar() {
         <nav className="bg-gradient-to-r from-lime-400 to-green-400 w-[80vw] mx-auto p-4 rounded-full fixed right-[10vw] top-6 flex items-center justify-between">
           <div className="logo  text-white font-bold flex mr-6 ">
             <Link href={"/"}>
-              <h2 className="text-3xl">I'm Social</h2>
+              <h2 className="text-3xl">{`I'm Social`}</h2>
             </Link>
             <Image
               alt="loading"
