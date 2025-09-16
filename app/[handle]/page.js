@@ -9,7 +9,7 @@ export default async function Page({ params }) {
   console.log(items.pic);
 
   return (
-    <div className="bg-gradient-to-r from-pink-500 to-rose-500 min-h-screen flex justify-center py-10">
+    <div className="bg-gradient-to-t from-sky-600 to-slate-800 min-h-screen flex justify-center py-10">
       <div className="flex flex-col items-center w-full max-w-md">
         {/* Profile Picture */}
         <Image
