@@ -1,11 +1,11 @@
 "use client";
-// import React, { useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import { ToastContainer, toast } from "react-toastify";
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+
 function Gene() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -59,92 +59,93 @@ function Gene() {
   };
 
   return (
-    <div className="min-h-screen grid grid-cols-2">
-      <div className="flex flex-col justify-center items-center gap-4 mt-6">
-        <h1 className="text-yellow-300 text-4xl font-bold mb-3">
+    <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
+      <div className="flex flex-col justify-center items-center gap-4 mt-6 p-4">
+        <h1 className="text-yellow-300 text-3xl sm:text-4xl font-bold mb-3 text-center">
           Create Your Social!
         </h1>
-        <div className="flex flex-col gap-5">
-          <h2 className="text-yellow-200">Step1: CLAIM YOUR HANDLE</h2>
+        <div className="flex flex-col gap-5 w-full max-w-sm">
+          <h2 className="text-yellow-200 text-center sm:text-left">
+            Step1: CLAIM YOUR HANDLE
+          </h2>
           <input
-            className="bg-white text-black p-2 rounded-2xl focus:outline-green-300"
+            className="bg-white text-black p-2 rounded-2xl focus:outline-green-300 w-full"
             type="text"
             placeholder="Choose a handle"
             value={handle || ""}
             onChange={(e) => {
               sethandle(e.target.value);
             }}
-          ></input>
-          <h2 className="text-yellow-200">Step2: ADD LINKS</h2>
+          />
+          <h2 className="text-yellow-200 text-center sm:text-left">
+            Step2: ADD LINKS
+          </h2>
           {links &&
-            links.map((item, index) => {
-              return (
-                <div key={index}>
-                  <input
-                    className="bg-white text-black p-2 rounded-2xl focus:outline-green-300"
-                    type="text"
-                    placeholder="Enter link"
-                    value={item.link || ""}
-                    onChange={(e) => {
-                      handleChange(index, e.target.value, item.linktext);
-                    }}
-                  ></input>
-
-                  <input
-                    className="bg-white text-black p-2 rounded-2xl focus:outline-green-300"
-                    type="text"
-                    placeholder="Enter link text"
-                    value={item.linktext || ""}
-                    onChange={(e) => {
-                      handleChange(index, item.link, e.target.value);
-                    }}
-                  ></input>
-                </div>
-              );
-            })}
+            links.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col sm:flex-row gap-2 mb-2 w-full"
+              >
+                <input
+                  className="bg-white text-black p-2 rounded-2xl focus:outline-green-300 w-full"
+                  type="text"
+                  placeholder="Enter link"
+                  value={item.link || ""}
+                  onChange={(e) => {
+                    handleChange(index, e.target.value, item.linktext);
+                  }}
+                />
+                <input
+                  className="bg-white text-black p-2 rounded-2xl focus:outline-green-300 w-full"
+                  type="text"
+                  placeholder="Enter link text"
+                  value={item.linktext || ""}
+                  onChange={(e) => {
+                    handleChange(index, item.link, e.target.value);
+                  }}
+                />
+              </div>
+            ))}
           <button
-            onClick={() => {
-              addLink();
-            }}
+            onClick={addLink}
             type="button"
-            className="rounded-full  text-gray-900 mt-1.5 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2"
+            className="rounded-full text-gray-900 mt-1.5 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2 w-full"
           >
             Add link
           </button>
-          <h2 className="text-yellow-200">Step3: ADD PICTURE AND FINALIZE</h2>
+          <h2 className="text-yellow-200 text-center sm:text-left">
+            Step3: ADD PICTURE AND FINALIZE
+          </h2>
           <input
-            className="bg-white text-black p-2 rounded-2xl focus:outline-green-300"
+            className="bg-white text-black p-2 rounded-2xl focus:outline-green-300 w-full"
             type="text"
             placeholder="Link to your photo"
             value={pic || ""}
             onChange={(e) => {
               setpic(e.target.value);
             }}
-          ></input>
+          />
           <button
             disabled={
-              pic == "" ||
-              handle == "" ||
-              links[0].linktext == "" ||
-              links[0].link == ""
+              pic === "" ||
+              handle === "" ||
+              (links[0] && (links[0].linktext === "" || links[0].link === ""))
             }
-            onClick={() => {
-              submitLinks(links, handle, pic);
-            }}
+            onClick={() => submitLinks(links, handle, pic)}
             type="button"
-            className=" rounded-full  text-gray-900 mt-1.5 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2"
+            className="rounded-full text-gray-900 mt-1.5 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2 w-full disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Create your Social Link
           </button>
         </div>
       </div>
-      <div className="w-full  h-screen flex justify-center items-center">
+      <div className="hidden md:flex w-full h-screen justify-center items-center p-4">
         <ToastContainer />
         <Image
           className="relative top-10"
           src={"/rightphoto.jpeg"}
           width={700}
-          alt="loading"
+          alt="Preview"
           height={800}
         />
       </div>
